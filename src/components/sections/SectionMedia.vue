@@ -1,21 +1,18 @@
 <template>
   <div>
-    <ul class="flex flex-wrap">
-      <li
-        class="border-2 p-2 border-red-500"
+    <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-x-8 gap-y-4">
+      <CardMovie
         v-for="film in data.films"
         :key="film.id"
-      >
-        <CardMovie :movieMedia="film"></CardMovie>
-      </li>
-      <li
-        class="border-2 p-2 border-blue-500"
+        :movieMedia="film"
+      ></CardMovie>
+
+      <CardTvShow
+        :tvMedia="tvShow"
         v-for="tvShow in data.tvShows"
         :key="tvShow.id"
-      >
-        <CardTvShow :tvMedia="tvShow"></CardTvShow>
-      </li>
-    </ul>
+      ></CardTvShow>
+    </div>
   </div>
 </template>
 
@@ -30,32 +27,7 @@ export default {
   data() {
     return {
       data,
-      //   flagsSource: {
-      //     en: '../assets/flags/uk.png',
-      //     es: '../assets/flags/spain.png',
-      //     fr: '../assets/flags/france.png',
-      //     de: '../assets/flags/germany.png',
-      //     it: '../assets/flags/italy.png',
-      //     globe: '../assets/flags/globe.png',
-      //   },
     };
-  },
-  methods: {
-    getFlag(lang) {
-      if (lang === 'en') {
-        return this.flagsSource.en;
-      } else if (lang === 'fr') {
-        return this.flagsSource.fr;
-      } else if (lang === 'de') {
-        return this.flagsSource.de;
-      } else if (lang === 'it') {
-        return this.flagsSource.it;
-      } else if (lang === 'es') {
-        return this.flagsSource.es;
-      } else {
-        return this.flagsSource.globe;
-      }
-    },
   },
 };
 </script>

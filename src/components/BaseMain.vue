@@ -39,7 +39,7 @@
             {{ film.title }}
           </h2>
           <h3>{{ film.original_title }}</h3>
-          <h4>{{ film.original_language }}</h4>
+          <img :src="getFlag(film.original_language)" alt="bandiera" />
           <h4>{{ film.vote_average }}</h4>
         </li>
       </ul>
@@ -49,14 +49,24 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name: 'BaseMain',
+
   data() {
     return {
       apiKey: '7c5108b2d54ed416106260111c03e2d9',
       searchText: '',
       // language: null,
       films: [],
+      flagsSource: {
+        en: '../assets/flags/uk.png',
+        es: '../assets/flags/spain.png',
+        fr: '../assets/flags/france.png',
+        de: '../assets/flags/germany.png',
+        it: '../assets/flags/italy.png',
+        globe: '../assets/flags/globe.png',
+      },
     };
   },
   methods: {
@@ -76,6 +86,21 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    getFlag(lang) {
+      if (lang === 'en') {
+        return this.flagsSource.en;
+      } else if (lang === 'fr') {
+        return this.flagsSource.fr;
+      } else if (lang === 'de') {
+        return this.flagsSource.de;
+      } else if (lang === 'it') {
+        return this.flagsSource.it;
+      } else if (lang === 'es') {
+        return this.flagsSource.es;
+      } else {
+        return this.flagsSource.globe;
+      }
     },
   },
 };

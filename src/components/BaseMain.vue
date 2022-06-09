@@ -11,6 +11,17 @@
           placeholder="Inserisci titolo..."
           class="rounded py-2 px-8 border-2 border-red-500"
         />
+        <select
+          v-model="language"
+          class="py-2 px-4 border-2 border-red-500 rounded"
+        >
+          <option value="" selected>globo</option>
+          <option value="it-IT">italiano</option>
+          <option value="en-En">inglese</option>
+          <option value="fr-FR">french</option>
+          <option value="es-ES">spagnolo</option>
+          <option value="de-DE">tedesco</option>
+        </select>
         <button class="bg-red-500 py-2 px-4 rounded" type="submit">
           Cerca ...
         </button>
@@ -43,6 +54,7 @@ export default {
     return {
       apiKey: '7c5108b2d54ed416106260111c03e2d9',
       searchText: '',
+      language: null,
       films: [],
     };
   },
@@ -53,7 +65,7 @@ export default {
           params: {
             api_key: this.apiKey,
             query: this.searchText,
-            language: 'it-IT',
+            language: this.language,
           },
         })
         .then((response) => {

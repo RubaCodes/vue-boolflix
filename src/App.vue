@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <BaseHeader></BaseHeader>
-    <BaseMain></BaseMain>
+    <BaseMain class="bg-slate-800 text-white"></BaseMain>
   </div>
 </template>
 

@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-x-8 gap-y-4">
-      <CardMovie
-        v-for="film in data.films"
-        :key="film.id"
-        :movieMedia="film"
-      ></CardMovie>
+  <div class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6 gap-4 py-12">
+    <CardMovie
+      v-for="film in data.films"
+      :key="film.id"
+      :movieMedia="film"
+    ></CardMovie>
 
-      <CardTvShow
-        :tvMedia="tvShow"
-        v-for="tvShow in data.tvShows"
-        :key="tvShow.id"
-      ></CardTvShow>
-    </div>
+    <CardTvShow
+      :tvMedia="tvShow"
+      v-for="tvShow in data.tvShows"
+      :key="tvShow.id"
+    ></CardTvShow>
   </div>
 </template>
 

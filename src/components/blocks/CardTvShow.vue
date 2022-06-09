@@ -1,6 +1,9 @@
 <template>
   <div class="card">
-    <img src="" alt="locandina" />
+    <img
+      :src="`https://image.tmdb.org/t/p/w342${tvMedia.poster_path}`"
+      alt="locandina"
+    />
     <h2>
       {{ tvMedia.name }}
     </h2>

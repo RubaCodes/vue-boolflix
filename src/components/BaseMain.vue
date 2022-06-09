@@ -1,6 +1,6 @@
 <template>
-  <main class="container mx-auto">
-    <SectionMedia></SectionMedia>
+  <main class="bg-gray-900">
+    <SectionMedia class="container mx-auto"></SectionMedia>
   </main>
 </template>
 

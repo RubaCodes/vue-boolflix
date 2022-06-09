@@ -1,6 +1,10 @@
 <template>
   <div class="card">
-    <img src="" alt="locandina" />
+    <img
+      :src="`https://image.tmdb.org/t/p/w342${movieMedia.poster_path}`"
+      alt="locandina"
+      class="max-h-[350px] rounded"
+    />
     <h2>
       {{ movieMedia.title }}
     </h2>

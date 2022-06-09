@@ -1,8 +1,8 @@
 <template>
-  <form @submit.prevent>
+  <form @submit.prevent="setValue">
     <input
       type="text"
-      v-model="data.searchText"
+      v-model="localValue"
       placeholder="Inserisci titolo..."
       class="rounded py-2 px-8 border-2 border-red-500"
     />
@@ -14,12 +14,20 @@
 
 <script>
 import data from '../../data/data.js';
+
 export default {
   name: 'SearchBox',
   data() {
     return {
       data,
+      localValue: '',
     };
+  },
+  methods: {
+    //export del value al submit
+    setValue() {
+      this.data.searchText = this.localValue;
+    },
   },
 };
 </script>

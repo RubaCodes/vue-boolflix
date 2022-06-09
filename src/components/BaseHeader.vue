@@ -20,8 +20,6 @@ export default {
     return {
       data,
       apiKey: '7c5108b2d54ed416106260111c03e2d9',
-      films: [],
-      series: [],
     };
   },
   methods: {
@@ -39,7 +37,7 @@ export default {
           },
         })
         .then((response) => {
-          this.films = response.data.results;
+          this.data.films = response.data.results;
         })
         .catch((error) => {
           console.log(error);
@@ -55,7 +53,7 @@ export default {
           },
         })
         .then((response) => {
-          this.series = response.data.results;
+          this.data.tvShows = response.data.results;
         })
         .catch((error) => {
           console.log(error);
@@ -64,7 +62,7 @@ export default {
     getContent() {
       this.getMovies();
       this.getTvShows();
-      this.data.totalContent = [...this.films, ...this.series];
+      this.data.totalContent = [...this.data.films, ...this.data.tvShows];
     },
   },
 };

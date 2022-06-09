@@ -11,12 +11,18 @@
           placeholder="Inserisci titolo..."
           class="rounded py-2 px-8 border-2 border-red-500"
         />
-        <button class="bg-red-500 py-2 px-4 rounded">Cerca ...</button>
+        <button class="bg-red-500 py-2 px-4 rounded" type="submit">
+          Cerca ...
+        </button>
       </form>
     </header>
     <main class="container mx-auto">
-      <ul>
-        <li v-for="film in films" :key="film.id">
+      <ul class="flex flex-wrap">
+        <li
+          class="border-2 p-2 border-red-500"
+          v-for="film in films"
+          :key="film.id"
+        >
           <h2>
             {{ film.title }}
           </h2>

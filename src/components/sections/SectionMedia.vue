@@ -1,26 +1,27 @@
 <template>
-  <ul class="flex flex-wrap">
-    <li
-      class="border-2 p-2 border-red-500"
-      v-for="film in films"
-      :key="film.id"
-    >
-      <CardMovie :movieMedia="film"></CardMovie>
-    </li>
-    <li
-      class="border-2 p-2 border-blue-500"
-      v-for="tvShow in tvShows"
-      :key="tvShow.id"
-    >
-      <CardTvShow :tvMedia="tvShow"></CardTvShow>
-    </li>
-  </ul>
+  <div>
+    <ul class="flex flex-wrap">
+      <li
+        class="border-2 p-2 border-red-500"
+        v-for="film in films"
+        :key="film.id"
+      >
+        <CardMovie :movieMedia="film"></CardMovie>
+      </li>
+      <li
+        class="border-2 p-2 border-blue-500"
+        v-for="tvShow in tvShows"
+        :key="tvShow.id"
+      >
+        <CardTvShow :tvMedia="tvShow"></CardTvShow>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 import axios from 'axios';
 import CardMovie from '../blocks/CardMovie.vue';
-import data from '../../data/data.js';
 import CardTvShow from '../blocks/CardTvShow.vue';
 
 export default {
@@ -29,7 +30,7 @@ export default {
   data() {
     return {
       apiKey: '7c5108b2d54ed416106260111c03e2d9',
-      data,
+      contenSearch: '',
       films: [],
       tvShows: [],
       //   flagsSource: {
@@ -43,12 +44,16 @@ export default {
     };
   },
   methods: {
-    getMovies() {
+    updateValue(localValue) {
+      this.contenSearch = localValue;
+    },
+
+    getMovies(name) {
       axios
         .get('https://api.themoviedb.org/3/search/movie?', {
           params: {
             api_key: this.apiKey,
-            query: this.data.searchText,
+            query: name,
             // language: this.language,
             language: 'it-IT',
           },
@@ -60,12 +65,12 @@ export default {
           console.log(error);
         });
     },
-    getTvShows() {
+    getTvShows(name) {
       axios
         .get('https://api.themoviedb.org/3/search/tv?', {
           params: {
             api_key: this.apiKey,
-            query: this.data.searchText,
+            query: name,
             // language: this.language,
             language: 'it-IT',
           },
@@ -77,9 +82,9 @@ export default {
           console.log(error);
         });
     },
-    getContent() {
-      this.getMovies();
-      this.getTvShows();
+    getContent(show) {
+      this.getMovies(show);
+      this.getTvShows(show);
     },
     getFlag(lang) {
       if (lang === 'en') {

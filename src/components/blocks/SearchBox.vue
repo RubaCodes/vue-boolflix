@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="setValue">
+  <form @submit.prevent="$emit('emitText', localValue)">
     <input
       type="text"
       v-model="localValue"
@@ -14,20 +14,13 @@
 
 <script>
 import data from '../../data/data.js';
-
 export default {
   name: 'SearchBox',
   data() {
     return {
-      data,
       localValue: '',
+      data,
     };
-  },
-  methods: {
-    //export del value al submit
-    setValue() {
-      this.data.searchText = this.localValue;
-    },
   },
 };
 </script>

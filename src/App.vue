@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <BaseMain></BaseMain>
+    <BaseHeader></BaseHeader>
+    <!-- <BaseMain></BaseMain> -->
   </div>
 </template>
 
 <script>
-import BaseMain from './components/BaseMain.vue';
+import BaseHeader from './components/BaseHeader.vue';
+// import BaseMain from './components/BaseMain.vue';
 export default {
   name: 'App',
-  components: { BaseMain },
+  components: { BaseHeader },
 };
 </script>

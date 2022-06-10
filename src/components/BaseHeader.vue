@@ -5,7 +5,7 @@
       alt="logo netflix"
       width="80"
     />
-    <SearchBox @emitText="emitHandle"></SearchBox>
+    <SearchBox class="ml-5" @emitText="emitHandle"></SearchBox>
   </header>
 </template>
 

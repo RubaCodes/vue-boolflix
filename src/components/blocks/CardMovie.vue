@@ -1,10 +1,10 @@
 <template>
-  <div class="card relative">
+  <div class="card relative border-2 border-white">
     <div class="poster-container h-full">
       <img
         :src="`https://image.tmdb.org/t/p/w342${movieMedia.poster_path}`"
         alt="locandina"
-        class="block w-full h-full object-center"
+        class="block w-full h-full"
       />
     </div>
     <div

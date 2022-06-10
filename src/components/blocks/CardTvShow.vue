@@ -13,23 +13,23 @@
       <h2>
         {{ tvMedia.name }}
       </h2>
-      <h3>{{ tvMedia.name }}</h3>
+      <h3>{{ tvMedia.original_name }}</h3>
       <img
         :src="getFlag(tvMedia.original_language)"
         alt="bandiera"
         class="w-1/6"
       />
       <font-awesome-icon
-        v-for="(score, index) in getStarScore(tvMedia.vote_average)"
-        :key="index"
+        v-for="j in getStarScore(tvMedia.vote_average)"
+        :key="j"
         icon="fa-solid fa-star"
         class="text-yellow-400"
       />
       <font-awesome-icon
-        v-for="(score, index) in 5 - getStarScore(tvMedia.vote_average)"
-        :key="index"
+        v-for="i in 5 - getStarScore(tvMedia.vote_average)"
+        :key="i + 5"
         icon="fa-regular fa-star"
-        class="text-yellow-400"
+        class="text-white"
       />
     </div>
   </div>

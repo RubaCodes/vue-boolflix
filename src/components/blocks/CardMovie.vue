@@ -4,7 +4,7 @@
       <img
         :src="`https://image.tmdb.org/t/p/w342${movieMedia.poster_path}`"
         alt="locandina"
-        class="max-h-[350px] block w-full"
+        class="block w-full"
       />
     </div>
     <div

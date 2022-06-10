@@ -19,7 +19,18 @@
         alt="bandiera"
         class="w-1/6"
       />
-      <h4>{{ getStarScore(tvMedia.vote_average) }}</h4>
+      <font-awesome-icon
+        v-for="(score, index) in getStarScore(tvMedia.vote_average)"
+        :key="index"
+        icon="fa-solid fa-star"
+        class="text-yellow-400"
+      />
+      <font-awesome-icon
+        v-for="(score, index) in 5 - getStarScore(tvMedia.vote_average)"
+        :key="index"
+        icon="fa-regular fa-star"
+        class="text-yellow-400"
+      />
     </div>
   </div>
 </template>

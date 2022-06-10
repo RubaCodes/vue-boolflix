@@ -19,13 +19,26 @@
         alt="bandiera"
         class="w-1/6"
       />
-      <h4>{{ getStarScore(movieMedia.vote_average) }}</h4>
+      <font-awesome-icon
+        v-for="(score, index) in getStarScore(movieMedia.vote_average)"
+        :key="index"
+        icon="fa-solid fa-star"
+        class="text-yellow-400"
+      />
+      <font-awesome-icon
+        v-for="(score, index) in 5 - getStarScore(movieMedia.vote_average)"
+        :key="index"
+        icon="fa-regular fa-star"
+        class="text-yellow-400"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import data from '../../data/data.js';
+//font awesome
+
 export default {
   name: 'ContentCard',
   props: {

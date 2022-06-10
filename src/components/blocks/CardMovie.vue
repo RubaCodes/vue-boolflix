@@ -19,7 +19,7 @@
         alt="bandiera"
         class="w-1/6"
       />
-      <h4>{{ movieMedia.vote_average }}</h4>
+      <h4>{{ getStarScore(movieMedia.vote_average) }}</h4>
     </div>
   </div>
 </template>
@@ -49,6 +49,10 @@ export default {
       } else {
         return this.data.flagsSource.globe;
       }
+    },
+    getStarScore(scoreOneToTen) {
+      let scoreOneToFive = Math.ceil(scoreOneToTen / 2);
+      return scoreOneToFive;
     },
   },
 };

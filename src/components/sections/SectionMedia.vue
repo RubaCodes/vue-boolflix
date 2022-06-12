@@ -4,6 +4,7 @@
       I film che corrispondono con :
       <span class="text-red-500">{{ data.searchText }}</span>
     </h1>
+    <GenreFilter :genreList="data.movieGenreList"></GenreFilter>
     <div
       class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6 gap-4 py-6"
       id="movies"
@@ -35,11 +36,12 @@
 import data from '../../data/data.js';
 import CardMovie from '../blocks/CardMovie.vue';
 import CardTvShow from '../blocks/CardTvShow.vue';
+import GenreFilter from '../blocks/GenreFilter.vue';
 import axios from 'axios';
 
 export default {
   name: 'SectionMedia',
-  components: { CardMovie, CardTvShow },
+  components: { CardMovie, CardTvShow, GenreFilter },
   data() {
     return {
       data,

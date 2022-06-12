@@ -87,7 +87,6 @@ export default {
           genresByWord.push(genre.name);
         }
       });
-      console.log(genresByWord);
       return genresByWord;
     },
   },

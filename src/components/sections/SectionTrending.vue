@@ -40,10 +40,12 @@ export default {
         })
         .then((response) => {
           this.data.trending = response.data.results;
-          console.log(data.trending);
         })
         .catch((error) => {
           console.log(error);
+        })
+        .finally(() => {
+          this.data.processing = false;
         });
     },
   },

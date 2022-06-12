@@ -2,7 +2,11 @@
   <div class="card relative border-2 border-white">
     <div class="poster-container h-full">
       <img
-        :src="`https://image.tmdb.org/t/p/w342${tvMedia.poster_path}`"
+        :src="
+          tvMedia.poster_path !== null
+            ? `https://image.tmdb.org/t/p/w342${tvMedia.poster_path}`
+            : 'https://dummyimage.com/360x640/fff/aaa'
+        "
         alt="locandina"
         class="block w-full h-full"
       />

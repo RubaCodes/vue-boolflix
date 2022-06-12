@@ -1,7 +1,7 @@
 <template>
   <select
     v-model="selectValue"
-    @change="$emit('test', selectValue)"
+    @change="$emit('newMovie', selectValue)"
     class="text-black bg-withe py-2 px-4 rounded"
   >
     <option value="All" selected>All</option>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'GenreFilter',
+  name: 'GenreFilterMovies',
   props: {
     genreList: Array,
   },

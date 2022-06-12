@@ -1,7 +1,10 @@
 <template>
   <main class="bg-gray-900">
-    <SectionTrending class="container mx-auto">></SectionTrending>
-    <SectionMedia class="container mx-auto"></SectionMedia>
+    <SectionTrending
+      v-if="!data.films.length && !data.tvShows.length"
+      class="container mx-auto"
+    ></SectionTrending>
+    <SectionMedia v-else class="container mx-auto"></SectionMedia>
   </main>
 </template>
 

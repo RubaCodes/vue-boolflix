@@ -1,17 +1,16 @@
 <template>
   <main class="bg-gray-900">
-    <SectionMedia
-      class="container mx-auto"
-      :class="{ 'h-[92vh]': !data.films.length }"
-    ></SectionMedia>
+    <SectionTrending class="container mx-auto">></SectionTrending>
+    <SectionMedia class="container mx-auto"></SectionMedia>
   </main>
 </template>
 
 <script>
 import SectionMedia from './sections/SectionMedia.vue';
 import data from '../data/data.js';
+import SectionTrending from './sections/SectionTrending.vue';
 export default {
-  components: { SectionMedia },
+  components: { SectionMedia, SectionTrending },
   name: 'BaseMain',
   data() {
     return {

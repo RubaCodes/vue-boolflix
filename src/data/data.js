@@ -3,6 +3,7 @@ export default Vue.observable({
   searchText: '',
   movieGenreList: [],
   tvShowsGenreList: [],
+  trending: [],
   films: [],
   tvShows: [],
   flagsSource: {

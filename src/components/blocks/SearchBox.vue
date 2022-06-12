@@ -1,12 +1,18 @@
 <template>
-  <form @submit.prevent="$emit('emitText', localValue)">
+  <form
+    class="flex items-center"
+    @submit.prevent="$emit('emitText', localValue)"
+  >
     <input
       type="text"
       v-model="localValue"
       placeholder="Inserisci titolo..."
       class="rounded py-2 px-8 border-2 border-red-500"
     />
-    <button class="bg-red-500 py-2 px-4 rounded" type="submit">
+    <button
+      class="bg-red-500 py-2 px-4 rounded border-2 border-red-500 hidden md:block"
+      type="submit"
+    >
       Cerca ...
     </button>
   </form>

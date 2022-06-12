@@ -1,13 +1,20 @@
 <template>
   <section>
-    <h1 class="text-3xl py-3 uppercase">
-      I film che corrispondono con :
-      <span class="text-red-500">{{ data.searchText }}</span>
-    </h1>
-    <GenreFilterMovies
-      :genreList="data.movieGenreList"
-      @newMovie="emitHandleMovie"
-    ></GenreFilterMovies>
+    <div class="header-section-movies flex justify-between items-center">
+      <h1
+        class="text-3xl py-3 uppercase"
+        :class="{ hidden: !data.films.length }"
+      >
+        I film che corrispondono con :
+        <span class="text-red-500">{{ data.searchText }}</span>
+      </h1>
+      <GenreFilterMovies
+        :class="{ hidden: !data.films.length }"
+        :genreList="data.movieGenreList"
+        @newMovie="emitHandleMovie"
+      ></GenreFilterMovies>
+    </div>
+
     <div
       class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6 gap-4 py-6"
       id="movies"
@@ -18,14 +25,21 @@
         :movieMedia="film"
       ></CardMovie>
     </div>
-    <h1 class="text-3xl py-3 uppercase">
-      Le serie Tv che corripondono con :
-      <span class="text-red-500">{{ data.searchText }}</span>
-    </h1>
-    <GenreFilterTv
-      :genreList="data.tvShowsGenreList"
-      @NewTv="emitHandleTv"
-    ></GenreFilterTv>
+    <div class="header-section-tvshows flex justify-between items-center">
+      <h1
+        class="text-3xl py-3 uppercase"
+        :class="{ hidden: !data.tvShows.length }"
+      >
+        Le serie Tv che corripondono con :
+        <span class="text-red-500">{{ data.searchText }}</span>
+      </h1>
+      <GenreFilterTv
+        :class="{ hidden: !data.tvShows.length }"
+        :genreList="data.tvShowsGenreList"
+        @NewTv="emitHandleTv"
+      ></GenreFilterTv>
+    </div>
+
     <div
       class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6 gap-4 py-6"
       id="tvShows"

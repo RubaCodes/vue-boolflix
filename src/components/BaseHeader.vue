@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-black py-4 flex items-center justify-between">
+  <header class="bg-black py-4 px-4 flex items-center justify-between">
     <img
       src="https://www.mobileworld.it/wp-content/uploads/2016/06/netflix-nuova-icona-800x534.png"
       alt="logo netflix"

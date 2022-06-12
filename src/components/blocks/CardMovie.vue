@@ -37,6 +37,15 @@
           class="text-white"
         />
       </div>
+      <div class="genres">
+        <span>Generi:</span>
+        <span
+          v-for="(genre, index) in getGenres(movieMedia.genre_ids)"
+          :key="index"
+        >
+          {{ genre }},
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -72,6 +81,15 @@ export default {
     getStarScore(scoreOneToTen) {
       let scoreOneToFive = Math.ceil(scoreOneToTen / 2);
       return scoreOneToFive;
+    },
+    getGenres(arrayIDs) {
+      let genresByWord = [];
+      data.genreList.forEach((genre) => {
+        if (arrayIDs.includes(genre.id)) {
+          genresByWord.push(genre.name);
+        }
+      });
+      return genresByWord;
     },
   },
 };

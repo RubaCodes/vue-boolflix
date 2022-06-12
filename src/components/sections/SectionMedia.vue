@@ -93,6 +93,7 @@ export default {
         });
     },
   },
+  computed: {},
   created() {
     this.fetchGenreIDsMovies();
     this.fetchGenreIDsTvShows();

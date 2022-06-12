@@ -5,8 +5,8 @@
     class="text-black bg-withe py-2 px-4 rounded"
   >
     <option value="All" selected>All</option>
-    <option v-for="(genre, index) in genresNames" :key="index" :value="genre">
-      {{ genre }}
+    <option v-for="(genre, index) in genreList" :key="index" :value="genre.id">
+      {{ genre.name }}
     </option>
   </select>
 </template>
@@ -21,15 +21,6 @@ export default {
     return {
       selectValue: 'All',
     };
-  },
-  computed: {
-    genresNames() {
-      let names = [];
-      this.genreList.forEach((elm) => {
-        names.push(elm.name);
-      });
-      return names;
-    },
   },
 };
 </script>

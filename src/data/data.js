@@ -1,6 +1,7 @@
 import Vue from 'vue';
 export default Vue.observable({
   searchText: '',
+  genreList: [],
   films: [],
   tvShows: [],
   totalContent: [],

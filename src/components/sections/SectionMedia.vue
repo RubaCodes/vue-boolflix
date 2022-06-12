@@ -46,7 +46,7 @@ export default {
     };
   },
   methods: {
-    fetchGenreIDs() {
+    fetchGenreIDsMovies() {
       axios
         .get('https://api.themoviedb.org/3/genre/movie/list?', {
           params: {
@@ -54,7 +54,21 @@ export default {
           },
         })
         .then((response) => {
-          this.data.genreList = response.data.genres;
+          this.data.movieGenreList = response.data.genres;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    fetchGenreIDsTvShows() {
+      axios
+        .get('https://api.themoviedb.org/3/genre/tv/list?', {
+          params: {
+            api_key: '7c5108b2d54ed416106260111c03e2d9',
+          },
+        })
+        .then((response) => {
+          this.data.tvShowsGenreList = response.data.genres;
         })
         .catch((error) => {
           console.log(error);
@@ -62,7 +76,8 @@ export default {
     },
   },
   created() {
-    this.fetchGenreIDs();
+    this.fetchGenreIDsMovies();
+    this.fetchGenreIDsTvShows();
   },
 };
 </script>

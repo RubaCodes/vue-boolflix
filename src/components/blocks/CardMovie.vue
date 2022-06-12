@@ -91,7 +91,7 @@ export default {
     },
     getGenres(arrayIDs) {
       let genresByWord = [];
-      data.genreList.forEach((genre) => {
+      data.movieGenreList.forEach((genre) => {
         if (arrayIDs.includes(genre.id)) {
           genresByWord.push(genre.name);
         }

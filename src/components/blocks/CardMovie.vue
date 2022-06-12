@@ -46,12 +46,19 @@
           {{ genre }},
         </span>
       </div>
+      <!-- <div class="credits">
+        <div
+          v-for="(credit, index) in getCredits(movieMedia.id)"
+          :key="index"
+        ></div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import data from '../../data/data.js';
+//import axios from 'axios';
 //font awesome
 
 export default {
@@ -91,6 +98,23 @@ export default {
       });
       return genresByWord;
     },
+    // getUrls(idMedia) {
+    //   return 'https://api.themoviedb.org/3/credit/{' + idMedia + '}?';
+    // },
+    // getCredits(idMedia) {
+    //   axios
+    //     .get(this.getUrls(idMedia), {
+    //       params: {
+    //         api_key: '7c5108b2d54ed416106260111c03e2d9',
+    //       },
+    //     })
+    //     .then((response) => {
+    //       console.log(response);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // },
   },
 };
 </script>

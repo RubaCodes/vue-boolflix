@@ -13,7 +13,7 @@
       id="movies"
     >
       <CardMovie
-        v-for="film in data.films"
+        v-for="film in filteredMovies"
         :key="film.id"
         :movieMedia="film"
       ></CardMovie>
@@ -32,7 +32,7 @@
     >
       <CardTvShow
         :tvMedia="tvShow"
-        v-for="tvShow in data.tvShows"
+        v-for="tvShow in filteredTvShows"
         :key="tvShow.id"
       ></CardTvShow>
     </div>
@@ -93,7 +93,26 @@ export default {
         });
     },
   },
-  computed: {},
+  computed: {
+    filteredMovies() {
+      if (this.changeMovie == 'All' || this.changeMovie == '') {
+        return data.films;
+      } else {
+        return data.films.filter((film) =>
+          film.genre_ids.includes(this.changeMovie)
+        );
+      }
+    },
+    filteredTvShows() {
+      if (this.changeTv == 'All' || this.changeTv == '') {
+        return data.tvShows;
+      } else {
+        return data.tvShows.filter((show) =>
+          show.genre_ids.includes(this.changeTv)
+        );
+      }
+    },
+  },
   created() {
     this.fetchGenreIDsMovies();
     this.fetchGenreIDsTvShows();

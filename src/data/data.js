@@ -5,7 +5,6 @@ export default Vue.observable({
   tvShowsGenreList: [],
   films: [],
   tvShows: [],
-  totalContent: [],
   flagsSource: {
     en: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/640px-Flag_of_the_United_Kingdom.svg.png',
     es: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png',

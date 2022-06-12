@@ -1,12 +1,11 @@
 <template>
-  <select v-model="selectValue" class="text-black bg-withe py-2 px-4 rounded">
+  <select
+    v-model="selectValue"
+    @change="$emit('test', selectValue)"
+    class="text-black bg-withe py-2 px-4 rounded"
+  >
     <option value="All" selected>All</option>
-    <option
-      v-for="(genre, index) in genresNames"
-      :key="index"
-      :value="genre"
-      @change="$emit('test', selectValue)"
-    >
+    <option v-for="(genre, index) in genresNames" :key="index" :value="genre">
       {{ genre }}
     </option>
   </select>

@@ -19,6 +19,7 @@
       Le serie Tv che corripondono con :
       <span class="text-red-500">{{ data.searchText }}</span>
     </h1>
+    <GenreFilter :genreList="data.tvShowsGenreList"></GenreFilter>
     <div
       class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6 gap-4 py-6"
       id="tvShows"

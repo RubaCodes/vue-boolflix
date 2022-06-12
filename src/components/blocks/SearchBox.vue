@@ -7,10 +7,10 @@
       type="text"
       v-model="localValue"
       placeholder="Inserisci titolo..."
-      class="rounded py-2 px-8 border-2 border-red-500"
+      class="rounded-tl rounded-bl py-2 px-8 border-2 border-red-500"
     />
     <button
-      class="bg-red-500 py-2 px-4 rounded border-2 border-red-500 hidden md:block"
+      class="bg-red-500 py-2 px-4 rounded-tr border-2 rounded-br border-red-500 hidden md:block"
       type="submit"
     >
       Cerca ...

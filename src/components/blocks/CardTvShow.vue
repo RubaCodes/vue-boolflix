@@ -46,7 +46,7 @@
           {{ genre }},
         </span>
       </div>
-      <div class="credits">
+      <div class="credits pt-1">
         <span>Cast:</span>
         <span v-for="(cast, index) in cast" :key="index"> {{ cast }},</span>
       </div>
@@ -115,7 +115,7 @@ export default {
         });
     },
   },
-  updated() {
+  created() {
     this.getCredits(this.tvMedia.id);
   },
 };

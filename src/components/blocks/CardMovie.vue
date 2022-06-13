@@ -12,7 +12,7 @@
       />
     </div>
     <div
-      class="overlay absolute top-0 left-0 bottom-0 right-0 bg-black/75 p-4 opacity-0 hover:opacity-100 transition 200 ms"
+      class="overlay absolute top-0 left-0 bottom-0 right-0 bg-black/75 p-4 opacity-0 hover:opacity-100 transition 200 ms overflow-y-auto"
     >
       <h2 class="text-lg pb-2">
         {{ movieMedia.title }}

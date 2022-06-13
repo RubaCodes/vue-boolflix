@@ -62,7 +62,6 @@ export default {
     getContent() {
       this.getMovies();
       this.getTvShows();
-      //this.data.totalContent = [...this.data.films.concat(this.data.tvShows)];
     },
   },
 };

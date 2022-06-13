@@ -36,6 +36,7 @@ export default {
         .get('https://api.themoviedb.org/3/trending/movie/week?', {
           params: {
             api_key: '7c5108b2d54ed416106260111c03e2d9',
+            language: 'it-IT',
           },
         })
         .then((response) => {
@@ -48,8 +49,24 @@ export default {
           this.data.processing = false;
         });
     },
+    fetchGenreIDsMovies() {
+      axios
+        .get('https://api.themoviedb.org/3/genre/movie/list?', {
+          params: {
+            api_key: '7c5108b2d54ed416106260111c03e2d9',
+          },
+        })
+        .then((response) => {
+          this.data.movieGenreList = response.data.genres;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
+
   created() {
+    this.fetchGenreIDsMovies();
     this.getTrending();
   },
 };

@@ -46,19 +46,24 @@
           {{ genre }},
         </span>
       </div>
+      <div class="credits">
+        <span>Cast:</span>
+        <span v-for="(cast, index) in cast" :key="index"> {{ cast }},</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import data from '../../data/data.js';
+import axios from 'axios';
 export default {
   name: 'ContentCard',
   props: {
     tvMedia: Object,
   },
   data() {
-    return { data };
+    return { data, cast: [] };
   },
   methods: {
     getFlag(lang) {
@@ -89,6 +94,29 @@ export default {
       });
       return genresByWord;
     },
+    getUrls(idMedia) {
+      return 'https://api.themoviedb.org/3/movie/' + idMedia + '/credits?';
+    },
+    getCredits(idMedia) {
+      axios
+        .get(this.getUrls(idMedia), {
+          params: {
+            api_key: '7c5108b2d54ed416106260111c03e2d9',
+          },
+        })
+        .then((response) => {
+          for (let i = 0; i < 5; i++) {
+            this.cast.push(response.data.cast[i].name);
+          }
+          console.log(this.cast);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+  updated() {
+    this.getCredits(this.tvMedia.id);
   },
 };
 </script>
